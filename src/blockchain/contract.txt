@@ -1,0 +1,62 @@
+//SPDX-License-Identifier: Unlicense
+import "https://github.com/OpenZeppelin/openzeppelin-contracts/blob/master/contracts/token/ERC20/ERC20.sol";
+
+pragma solidity ^0.8.7;
+
+contract ETracker is ERC20{
+        // event Transx(string _data, int _val, string _type);
+
+    address public owner;
+    uint private rate;
+    
+    constructor() ERC20("DADDU", "DDU") payable{
+        require(msg.value >= 1 ether, "Min 3 Ether required for Bank Start");
+        _mint(msg.sender, 1000000 * 10 ** 18);
+        rate = 100;
+        owner = msg.sender;
+    }
+    
+    // ____ Modifiers ____
+    modifier onlyOwner {
+      require( msg.sender == owner, "Only Owner can change the Price");
+      _;
+  }
+
+  modifier etherValue {
+      require( msg.value > 0);
+      _;
+  }
+
+  // ____ End of Modifiers ____
+
+
+    function showBalance() public view returns(uint){
+        return address(this).balance;
+    }
+    
+    function getTokens() payable external etherValue{
+    _mint(msg.sender, msg.value * rate * 10 ** 18);
+      
+  }
+
+    function transferTo(address payable _to, uint amount) public onlyOwner{
+        uint _amount = amount * 1 ether;
+        _to.transfer(_amount);
+    }
+
+    function changePrice(uint _rate) external onlyOwner{
+    rate = _rate;   
+  } 
+    // function transfer(address payable _to, uint _amount) public payable{
+    //     require(_amount > 0, "Enter some amount");
+    //     uint amount_eth = _amount * 1 ether;
+    //     _to.transfer(amount_eth);
+    // }
+    
+    fallback() external payable etherValue(){
+      _mint(msg.sender, msg.value * rate * 10 ** 18);
+  }
+
+   receive() external payable{
+    }
+}
