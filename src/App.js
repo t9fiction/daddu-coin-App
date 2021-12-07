@@ -3,6 +3,7 @@ import { Balance } from './components/Balance';
 import { BuyTokens } from './components/BuyTokens';
 import { ConnectButton } from './components/ConnectButton';
 import { Disconnect } from './components/Disconnect';
+import { SendEtherTo } from './components/SendEtherTo';
 import { TotalSupply } from './components/TotalSupply';
 
 function App() {
@@ -15,6 +16,7 @@ function App() {
       <Balance />
       <TotalSupply />
       <BuyTokens />
+      <SendEtherTo />
       <Disconnect />
     </div>
   );

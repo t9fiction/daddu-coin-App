@@ -29,8 +29,7 @@ export const LoadChain = async (dispatch) => {
             let tSupply = await contract.methods.totalSupply.call().call();
             dispatch(loadTSupply(tSupply))
 
-            let buyTokens = await contract.methods.getTokens().sendTransaction();
-            console.log("Tokens", buyTokens);
+
 
             // let tokenCount = await contract.methods.getTokens().sendTransaction({ from: accounts[0] });
             // console.log("tokenCount", tokenCount);
