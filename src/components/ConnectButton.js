@@ -10,7 +10,7 @@ export const ConnectButton = () => {
     return (
         <div>
             <button onClick={handleSubmit}>Connect Wallet</button>
-            {active ? <div>Connected</div> : <div>Not Connected</div>}
+            {/* {active ? <div>Connected</div> : <div>Not Connected</div>} */}
         </div>
     )
 }
