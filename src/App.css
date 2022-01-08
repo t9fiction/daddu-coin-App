@@ -23,6 +23,13 @@
   font-size: calc(10px + 2vmin);
   color: white;
 }
+.App-body {
+  background-color: #045742;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  color: white;
+}
 
 .App-link {
   color: #61dafb;

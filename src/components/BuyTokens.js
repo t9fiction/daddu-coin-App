@@ -19,11 +19,9 @@ export const BuyTokens = () => {
     return (
         <div>
             <br />
-            {/* <form name="myForm" method="post"> */}
             <input type="number" onChange={(e) => setCoinAmount(e.target.value)} />
             {coinAmount}
             <button onClick={handleSubmit}>Buy Tokens</button>
-            {/* </form> */}
         </div>
     )
 }

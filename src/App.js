@@ -16,7 +16,7 @@ function App() {
         DADDU COIN
       </header>
       {active ?
-        <div>
+        <div className="App-body">
           <br />
           Wallet Connected
           <Balance />
@@ -25,11 +25,12 @@ function App() {
           <SendEtherTo />
           <SendDDU />
           <Disconnect />
-        </div> : <div>
-          <br />
-          <ConnectButton />
+        </div> : <div className="App-body">
           <br />
           Wallet Not Connected
+          <br />
+          <br />
+          <ConnectButton />
         </div>
 
 

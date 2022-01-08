@@ -1,5 +1,5 @@
 import React from 'react'
-import { loadState } from '../context/Action'
+import { loadState } from '../context/Action';
 import { useStore } from '../context/GlobalState';
 
 export const Disconnect = () => {
